@@ -7,15 +7,34 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-animate.js"></script>
   <!-- Angular methods built for this application -->
   <script src="js/main.js"></script>
-  <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <div ng-controller="eventsController">
-    <div ng-repeat="json in jsons">
-      <div>{{ json.title }}</div>
-      <img src="{{ json.pagemap.cse_image[0].src }}"/>
-      <div>{{ json.link }}</div>
-      <hr>
+    <div class="center_search">
+      <form name="searchForm"> 
+        <p>
+          Look for events about: <input type="text" ng-model="eventSearch"><button ng-click="searchEvents()">Submit</button>
+        </p>
+      </form>
+    </div>
+    <hr>
+    <div class="left_side_of_page">
+      <div ng-repeat="json in jsons">
+        <p>{{ json.title }}</p>
+        <button ng-click="interested(json)">Add to Interested</button>
+        <br>
+        <img src="{{ json.pagemap.cse_image[0].src }}"/>
+        <p>{{ json.link }}</p>
+        <hr>
+      </div>
+    </div>
+    <div class="right_side_of_page">
+      <div ng-repeat="interestedItem in interestedList">
+        <div>
+          {{ interestedItem.title }}        
+        </div>
+      </div>
     </div>
   </div>
 </body>

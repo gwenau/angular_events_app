@@ -1,0 +1,17 @@
+.center_search {
+  text-align: center;
+}
+
+.left_side_of_page {
+  width: 50%;
+  float: left;
+}
+
+div img {
+  max-width: 400px;
+}
+
+.right_side_of_page {
+  width: 50%;
+  float: right;
+}
